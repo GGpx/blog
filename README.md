@@ -1,5 +1,2 @@
 # blog
-
-hahaah
-# blog
-# blog_2
+Exercice sur les requêtes Ajax
