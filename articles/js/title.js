@@ -1,5 +1,5 @@
 // CRéACTION DE LA FUNCTION POUR ENVOYER UNE REQUÊTE VERS LE SERVEUR
-function cli() {
+function titre() {
     
     var xhr = new XMLHttpRequest();
 
@@ -12,7 +12,7 @@ function cli() {
     };
 
     // ----------------------------------------PREMIèRE MéTHODE POUR RéCUPERER LE COMMENTAIRE
-    xhr.open('POST', 'save_article.php');
+    xhr.open('POST', 'controllers/save_article.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var data = 'title=' + document.getElementById('title').value;
     xhr.send(data);
@@ -26,12 +26,15 @@ function cli() {
     // xhr.send(data);    
 }
 
-function ajout(title) {
+function ajout(titre) {
+    
     var enfant = document.createElement('li');
-    enfant.innerHTML = titl;
+    enfant.innerHTML = titre;
 
-    var parent = document.getElementById('title');
+    var parent = document.getElementById('titre');
     parent.appendChild(enfant);
+
+    
 }
 
 

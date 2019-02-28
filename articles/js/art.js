@@ -1,5 +1,5 @@
 // CRéACTION DE LA FUNCTION POUR ENVOYER UNE REQUÊTE VERS LE SERVEUR
-function cli() {
+function art() {
     
     var xhr = new XMLHttpRequest();
 
@@ -12,9 +12,9 @@ function cli() {
     };
 
     // ----------------------------------------PREMIèRE MéTHODE POUR RéCUPERER LE COMMENTAIRE
-    xhr.open('POST', 'save_article.php');
+    xhr.open('POST', 'controllers/save_article.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    var data = 'art=' + document.getElementById('art').value;
+    var data = 'article=' + document.getElementById('article').value;
     xhr.send(data);
 
     // ----------------------------------------DEUXIèmE MéTHODE POUR RéCUPERER LE COMMENTAIRE
@@ -27,10 +27,10 @@ function cli() {
 }
 
 function ajout(art) {
-    var enfant = document.createElement('li');
+    var enfant = document.createElement('p');
     enfant.innerHTML = art;
 
-    var parent = document.getElementById('arts');
+    var parent = document.getElementById('art');
     parent.appendChild(enfant);
 }
 
