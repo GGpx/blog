@@ -1,12 +1,13 @@
 /* 
 *
-* DELETE USER
+*
+*        DELETE USER
+*
 *
 */
 
 
 function deleteUser(id) {
-    // alert(id);
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
@@ -16,7 +17,6 @@ function deleteUser(id) {
         }
     };
 
-    // ----------------------------------------PREMIèRE MéTHODE POUR RéCUPERER LE COMMENTAIRE
     xhr.open('POST', 'controllers/delete_user.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var data = 'id=' + id;
