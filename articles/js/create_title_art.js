@@ -1,21 +1,20 @@
 // CRéACTION DE LA FUNCTION POUR ENVOYER UNE REQUÊTE VERS LE SERVEUR
+function create_title_art() {
 
-function oclick() {
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            // alert('la réponse du serveur est valide');
-            ajout(document.getElementById('comment').value);
-        } else {
-            // alert('la réponse du serveur n\'est pas valide');
+            var title_article = (JSON.parse(xhr.responseText));
+            create(title_article.title, title_article.article);
         }
     };
 
     // ----------------------------------------PREMIèRE MéTHODE POUR RéCUPERER LE COMMENTAIRE
-    xhr.open('POST', 'save_comment.php');
+    xhr.open('POST', 'controllers/save_article.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    var data = 'comment=' + document.getElementById('comment').value;
+    var data = 'title=' + document.getElementById('title').value;
+    data = data + '&article=' + document.getElementById('article').value;
     xhr.send(data);
 
     // ----------------------------------------DEUXIèmE MéTHODE POUR RéCUPERER LE COMMENTAIRE
@@ -24,18 +23,18 @@ function oclick() {
     // var data = new FormData();
     // data.append('comment', document.getElementById('comment').value);
     //data.append(‘membre’,membre);
-    // xhr.send(data);
+    // xhr.send(data);    
 }
 
-// -------------------------------------------FONCTION POUR RAJOUTER EN DESSOUS LES COMMENTAIRES AJOUTER SUR LA BASE DE DONNéE
-function ajout(comment) {
-    var enfant = document.createElement('p');
+function create(title, article) {
 
-    enfant.innerHTML = comment;
+    var enfant = document.createElement('div');
+    enfant.innerHTML = title + article;
+    enfant.innerHTML += '<input type="submit" value="Supprimer" onclick="deleteTitle_art('+id+')">';
 
-    enfant.style.color = "green";
-
-    var parent = document.getElementById('comment_new');
-
+    var parent = document.getElementById('title_art');
     parent.appendChild(enfant);
+
 }
+
+

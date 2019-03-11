@@ -78,3 +78,7 @@ function ajout2(id, nom, prenom, email) {
     var parent = document.getElementById('list_user');
     parent.appendChild(enfant);
 }
+
+
+//Trouver une fonction pour mettre la liste en ordre décroissant
+

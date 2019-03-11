@@ -34,7 +34,7 @@
 <body>
 
 
-<!-- 
+<!--
 *
 *
  *       DIV AVEC LES CHAMPS QUE L'ONT RéCUPèRE POUR ENREGISTRER DANS LA BDD
@@ -61,7 +61,7 @@
 
     <h2>Liste des utilisateurs :</h2>
 
-<!-- 
+<!--
 *
 *
  *       DIV QUI PERMET D'AFFICHER LES INFORMATIONS DE LA BDD
@@ -73,33 +73,26 @@
 
         <?php
 
-
 // CODE POUR INCLURE LE FICHIER PHP AVEC LES OBJETS DE LA CLASS USER
 include_once 'objet/class_user.php';
 
-
 /*
-*
-*
-*       CONNECTION à LA BDD
-*
-*/
+ *
+ *
+ *       CONNECTION à LA BDD
+ *
+ */
 $connec = new PDO("mysql:dbname=blog", 'root', '0000');
 $connec->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-
-
 //      REQUÊTE QUI SELECTIONNE DES éléMENTS DE LA BDD
-$request = $connec->prepare('SELECT * 
-                            FROM user ORDER 
+$request = $connec->prepare('SELECT *
+                            FROM user ORDER
                             BY id DESC');
 $request->execute();
 
-
-
-// ASSIGNIATION DE LA VARIABLE $USERS A LA REQUÊTE EXECUTER AVANT 
+// ASSIGNIATION DE LA VARIABLE $USERS A LA REQUÊTE EXECUTER AVANT
 $users = $request->fetchAll(PDO::FETCH_ASSOC);
-
 
 // BLOUCLE FOREACH POUR RéCUPERER LES DONNéES DE LA BDD
 foreach ($users as $key => $user):
@@ -107,36 +100,36 @@ foreach ($users as $key => $user):
 
 
 
-<!-- // 
+<!-- //
 *
 *
  *           DIV QUI PERMET D'AFFICHER LES INFORMATIONS DE LA BDD
-  *          
-   *         
+  *
+   *
  -->
 
-        <div class="yeah" id="<?=$user['id']?>">
+        <div class="yeah" id="user_<?=$user['id']?>">
 
 <!-- // POUR AFFICHER L'ID DES UTILISATEURS  -->
-            <h6>ID :</h6>
+            <h6 class="h6">ID :</h6>
             <p> <?=$user['id']?> </p>
 
 <!-- // POUR AFFICHER LE NOM DES UTILISATEURS  -->
-            <h6>Nom :</h6>
+            <h6 class="h6">Nom :</h6>
             <p> <?=$user['nom']?> </p>
 
 <!-- // POUR AFFICHER LE PRENOM DES UTILISATEURS  -->
-            <h6>Prenom :</h6>
+            <h6 class="h6">Prenom :</h6>
             <p> <?=$user['prenom']?> </p>
 
 <!-- // POUR AFFICHER LE EMAIL DES UTILISATEURS  -->
-            <h6>Mail :</h6>
+            <h6 class="h6">Mail :</h6>
             <p> <?=$user['email']?> </p>
 
 
             <input type="hidden" id="id_user" name="id_user"/>
 
-<!-- 
+<!--
 *
 *
 *           LES TROIS BOUTONS POUR VOIR/MODIFIER/SUPPRIMER LES UTILISATEURS
