@@ -13,7 +13,7 @@ $request = $connect->prepare("DELETE FROM articles
 $request->execute();
 
 // UTILISATION DES OBJETS EN JSON
-$titles_articles = new User;
+$titles_articles = new Articles;
 $titles_articles -> id = $id;
 
 // ECHO POUR ENCODER L'OBJET EN JSON

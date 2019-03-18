@@ -1,23 +1,23 @@
 /* 
 *
 *
-*        DELETE USER
+*        VOIR TITRES ET ARTICLES
 *
 *
 */
 
-function deleteTitle_art(id) {
+function showTitle_art(id) {
 
     var xhr = new XMLHttpRequest();
 
     xhr.onreadystatechange = function () {
         if (xhr.readyState == 4 && xhr.status == 200) {
-            del(id);
+            show(xhr.responseText);
         }
     };
 
     
-    xhr.open('POST', 'controllers/delete_article.php');
+    xhr.open('POST', 'controllers/show_article.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var data = 'id=' + id;
     xhr.send(data);
@@ -31,16 +31,13 @@ function deleteTitle_art(id) {
     // xhr.send(data);    
 }
 
-function del(id) {
+function show(champ) {
+    var title_article = JSON.parse(champ);
+    
+    var input = document.getElementById('title');
+    var input2 = document.getElementById('article');
 
-    var enfant = document.getElementById(id);
-    enfant.innerHTML = title_art;
-
-    var parent = document.getElementById('title_art');
-    parent.removeChild(enfant);
+    input.value = title_article.title;
+    input2.value = title_article.article;
 
 }
-
-
-
-
