@@ -87,8 +87,8 @@ $connec->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 //      REQUÊTE QUI SELECTIONNE DES éléMENTS DE LA BDD
 $request = $connec->prepare('SELECT *
-                            FROM user ORDER
-                            BY id DESC');
+                            FROM user 
+                            ORDER BY id DESC');
 $request->execute();
 
 // ASSIGNIATION DE LA VARIABLE $USERS A LA REQUÊTE EXECUTER AVANT
@@ -99,17 +99,16 @@ foreach ($users as $key => $user):
 ?>
 
 
-
-<!-- //
-*
-*
- *           DIV QUI PERMET D'AFFICHER LES INFORMATIONS DE LA BDD
-  *
-   *
+        <div class="yeah" id="<?=$user['id']?>">
+<!--
+**
+**
+*       DIV QUI PERMET D'AFFICHER LES INFORMATIONS DE LA BDD
+**
+**
  -->
 
-        <div class="yeah" id="user_<?=$user['id']?>">
-
+ 
 <!-- // POUR AFFICHER L'ID DES UTILISATEURS  -->
             <h6 class="h6">ID :</h6>
             <p> <?=$user['id']?> </p>
