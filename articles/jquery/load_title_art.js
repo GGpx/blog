@@ -1,6 +1,6 @@
 $('#bouton').on('click', function () {
     $.post({
-        url: "/Blog/articles/controllers/load_article.php",
+        url: "articles/controllers/load_article.php",
         data: {
             id: $('#id').val(),
             title: $("#title").val(),

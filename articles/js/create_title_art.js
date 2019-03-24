@@ -18,7 +18,7 @@ function createTitle_art() {
     };
 
     
-    xhr.open('POST', 'controllers/save_article.php');
+    xhr.open('POST', 'articles/controllers/save_article.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var data = 'title=' + document.getElementById('title').value;
     data += '&article=' + document.getElementById('article').value;

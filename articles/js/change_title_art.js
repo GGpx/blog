@@ -23,7 +23,7 @@ function changeTitle_art(id) {
     };
 
     
-    xhr.open('POST', 'controllers/update_article.php');
+    xhr.open('POST', 'articles/controllers/update_article.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var data = 'id=' + id;
     data += '&title=' + document.getElementById('title').value;

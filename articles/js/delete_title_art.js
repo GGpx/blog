@@ -17,7 +17,7 @@ function deleteTitle_art(id) {
     };
 
     
-    xhr.open('POST', 'controllers/delete_article.php');
+    xhr.open('POST', 'articles/controllers/delete_article.php');
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     var data = 'id=' + id;
     xhr.send(data);
