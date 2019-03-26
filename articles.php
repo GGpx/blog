@@ -44,7 +44,7 @@ include_once 'user/objet/responseSucess.php';
     <textarea id="article" cols="50" rows="10"></textarea>
 
     <!-- BOUTON QUI PERMET L'ENVOI DU TITRE ET DE L'ARTICLE -->
-    <input id="valider" type="submit" value="Valider"><!--onclick="createTitle_art()"-->
+    <input id="valider" type="submit" value="Valider" onclick="createTitle_art()">
 
 <!--
 *
